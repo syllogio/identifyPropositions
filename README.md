@@ -4,7 +4,10 @@ Identify natural language propositions in a written argument.
 
 # Installation
 
-`pip install syllogio-identifyPropositions`
+```
+pip install syllogio-identifyPropositions
+python -m spacy download en_core_web_sm
+```
 
 # Usage
 
