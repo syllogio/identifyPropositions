@@ -4,10 +4,26 @@ Identify natural language propositions in a written argument.
 
 # Installation
 
-```
-pip install syllogio-identifyPropositions
-python -m spacy download en_core_web_sm
-```
+1. Install pip package.
+
+   ```bash
+   pip install syllogio-identifyPropositions
+   ```
+
+2. Install [spacy module](https://spacy.io/models) (Tested with "en_core_web_sm").
+
+   ```
+   python -m spacy download <model name>
+   ```
+
+3. Add model name to configuration.
+
+   ```ini
+   ; setup.cfg
+
+   [syllogio-identifyPropositions]
+   model_name = <model name> ; defaults to "en_core_web_sm"
+   ```
 
 # Usage
 

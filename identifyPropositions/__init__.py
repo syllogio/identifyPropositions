@@ -1,6 +1,6 @@
-from .util import parseClause, clauseTokensToString, getAllDescendantTokens  # noqa
 from .identify import identify  # noqa
+from . import config, util  # noqa
 
 __version__ = "0.0.2"
 
-__all__ = ["parseClase", "clauseTokensToString", "getAllDescendantTokens", "identify"]
+__all__ = ["util", "identify", "config"]

@@ -1,10 +1,9 @@
 import operator
 import spacy
 from .util import parseClause
+from .config import get
 
-
-# TODO: make this configurable.
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load(get("model_name", "en_core_web_sm"))
 
 
 def identify(text):
