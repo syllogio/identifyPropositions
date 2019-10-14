@@ -1,4 +1,6 @@
 from identifyPropositions import identify
+from unittest.mock import patch
+import spacy
 
 
 def test_syllogism():
@@ -7,6 +9,15 @@ def test_syllogism():
         "Greeks are men",
         "Greeks are mortal",
     ]
+
+
+@patch("spacy.load", return_value=spacy.load("en_core_web_sm"))
+def test_with_model(spacy_load):
+    assert identify(
+        "All men are mortal. Greeks are men. Greeks are mortal",
+        model_name="some_other_model",
+    ) == ["All men are mortal", "Greeks are men", "Greeks are mortal"]
+    spacy_load.assert_called_once_with("some_other_model")
 
 
 def test_compound():

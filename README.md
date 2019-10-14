@@ -16,7 +16,7 @@ Identify natural language propositions in a written argument.
    python -m spacy download <model name>
    ```
 
-3. Add model name to configuration.
+3. OPTIONAL: Add model name to configuration.
 
    ```ini
    ; setup.cfg
@@ -27,7 +27,20 @@ Identify natural language propositions in a written argument.
 
 # Usage
 
-Command line
+## Command line
+
+Usage:
+
+```
+Usage: idpr [options] INPUT
+
+Options:
+  -m <model> --model <model>    Specify a spaCy model. Defaults to "en_core_web_sm".
+  -V --version                  Print version and exit.
+  -h --help                     Show this message.
+```
+
+Example:
 
 ```
 > idpr "All men are mortal. Socrates is a man. Therefore, Socrates is mortal."
@@ -38,7 +51,7 @@ Command line
 ]
 ```
 
-Programmatic
+## Programmatic
 
 ```python
 from identifyPropositions import identify
