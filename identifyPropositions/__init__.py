@@ -1,4 +1,4 @@
-from .identify import identify  # noqa
+from .identify import identify, identifyText  # noqa
 from . import config, util  # noqa
 
 __version__ = "2.0.0"

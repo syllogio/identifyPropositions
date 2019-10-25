@@ -5,7 +5,7 @@ Options:
   -V --version                  Print version and exit.
   -h --help                     Show this message.
 """
-from identifyPropositions import identify, __version__
+from identifyPropositions import identifyText, __version__
 from docopt import docopt
 import json
 import sys
@@ -21,7 +21,7 @@ def main(args=None):
     if cli["--model"] is not None:
         opts["model_name"] = cli["--model"]
 
-    print(json.dumps(identify(**opts), indent=2, sort_keys=True))
+    print(json.dumps(identifyText(**opts), indent=2, sort_keys=True))
 
 
 if __name__ == "__main__":
