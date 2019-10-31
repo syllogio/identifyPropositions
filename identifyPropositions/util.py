@@ -23,14 +23,17 @@ def parseClause(rootToken):
         # independently.
         if (child.pos_ == "AUX" or child.pos_ == "VERB") and (
             child.dep_ == "conj"
-            or child.dep_ == "advcl"
+            # Is adverbial clause modifier with nominal subject.
+            or (
+                child.dep_ == "advcl"
+                and len([t for t in child.children if t.dep_ == "nsubj"]) != 0
+            )
             or child.dep_ == "ccomp"
-            or child.dep_ == "advcl"
         ):
             props = operator.add(props, parseClause(child))
         else:
-            # Exclude coordinating conjunctions since they do not fit in the primary
-            # text of either proposition.
+            # Exclude white space characters and coordinating conjunctions since they do
+            # not fit in the primary text of either proposition.
             if child.dep_ != "cc" and child.dep_ != "conj":
                 propTokens.append(child)
 

@@ -57,3 +57,18 @@ def test_new_line():
         )
         == ["All men are mortal", "Socrates is a man", "Socrates is mortal"]
     )
+
+
+def test_adverbial_clause_without_nominal_subject():
+    assert (
+        identifyText(
+            """
+        Looking forward beyond the stimulus, we need a very different sort of economy, one that restores a balanced form of capitalism. At the core of this change is a long-term increase in public outlay, investing in areas vital to economic growth and social decency. [...] An enhanced federal role, in turn, provides the moment to reclaim the public philosophy of activist government that effectively services people's needs where market forces fail.
+        """  # noqa: E501
+        )
+        == [
+            "Looking forward beyond the stimulus, we need a very different sort of economy, one that restores a balanced form of capitalism",  # noqa: E501
+            "At the core of this change is a long-term increase in public outlay, investing in areas vital to economic growth and social decency",  # noqa: E501
+            "An enhanced federal role, in turn, provides the moment to reclaim the public philosophy of activist government that effectively services people's needs where market forces fail",  # noqa: E501
+        ]
+    )
